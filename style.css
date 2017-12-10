@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+
+body {
+	background-color: #a5a5a5;
+}
+#center{
+	text-align: center;
+}
+
+#warning{
+	color: red;
+}
+
+
+
+/* Button related functionality below */
+#button{
+	background-color: ffce00;
+	color: black;
+	padding: 16px 30px; 
+	font-size: 15px;
+	cursor: pointer;
+}
+#button:hover{
+	background-color: grey;
+        color: white;
+        padding: 16px 30px; 
+        font-size: 20px;
+        cursor: pointer;
+}
+a:hover{
+	background-color: orange;
+	cursor: pointer;
+}
+
+/*For comment styling below*/
+
+/*h1#comment{
+	text-align: center;
+	border-style: dotted;
+}
+
+
+p#comment{
+	text-align: center;
+	border-style: solid;
+}
+*/
+#comment{
+	position: relative;
+	text-align: center;
+	border: 2px solid #83c796;
+	border-radius: 5px;
+	width: 50%;
+	height: 5%;
+	background-color: white;
+	margin: 0px;
+	left: 25%;
+
+
+}
+
+#hr{
+    display: block;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    width: 50%;
+    height: 5%;
+    border-style: outset;
+    border-width: 3px;
+}
