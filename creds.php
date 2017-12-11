@@ -1,13 +1,19 @@
 <?php
-	//For login related interfaces
-	$username = 'wp_user';
-	$password = 'skstuoa99A';
-	$host = 'localhost';
-	$database = 'custom';
-	$table = 'users';
+  //Change the values below to access your MySQL database
+  $username = '';
+  $password = '';
+  $host = '';
+  $database = '';
+  $table = '';
+  
+  //The below values are for more flexibility towards post tracking
+  //Change the values according to your needs
+  //Ex: $database2 = 'comments';
+  
+  $database2 = '';
+  $table2 = '';
+  
+  
 
-	//The below config is only for the comments database
-	$database2 = 'comments';
-	$table2 = 'comments';
 
 ?>
