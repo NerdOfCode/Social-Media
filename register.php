@@ -25,6 +25,7 @@ if($_SESSION['status'] == 1){
 		<form action="" method="post">
 			Username: &ensp;<input name="username" type="text" id="username" maxlength="15" required></input><br><br>
 			Password: &ensp;<input name="upassword" type="password" id="password" maxlength="45" required></input><br><br>
+			Email   : &ensp;&ensp;&ensp;&nbsp;<input name="email" type="email" required> </input><br><br>
 			<button type="submit" id="button">Register</button>
 		</form>
 
@@ -36,6 +37,9 @@ include 'creds.php';
 $user_name = $_POST['username'];
 $_SESSION['check_user'] = $user_name;
 $upassword = $_POST['upassword'];
+$email = $_POST['email'];
+//Keep track of number of emails sent
+$sent=0;
 
 //Prevent sql injection --> W.I.P
 //$user_name = mysqli_real_escape_string($db, $user_name);
@@ -87,10 +91,30 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 }
 
 $record_ip = "UPDATE users SET IP=\"$ip\" WHERE name=\"$user_name\"";
-
 $result = mysqli_query($db, $record_ip);
 
 
+//Check to see if that IP has already registered before
+$get_stored_ip = "SELECT * FROM $table WHERE IP='$ip'";
+$stored_result = mysqli_query($db, $get_stored_ip);
+$row = mysqli_fetch_array($stored_result);
+$stored_ip = $row['IP'];
+if("$ip" == "$stored_ip" && $count>3){
+		echo "<p style='color:red;'>This IP has already registered an account...</p>";
+		echo "Please check back in a while to re-register. <br> This is because of a security concern dealing with mass creation of user accounts";
+		$remove_user = "DELETE FROM $table WHERE name='$user_name'";
+		$remove_result = mysqli_query($db, $remove_user);
+		exit();
+}else if("$ip" == "$stored_ip && $count < 2"){
+		$count+=1;
+}
+//Enables email verification below
+$subject = "Verification Required";
+$txt = "Please verify your email by clicking this link: $link";
+$header = "From: $from" . "\r\n" .
+"CC: $reply";
+mail($email,$subject,$txt,$headers);
+$sent+=1;
 
 
 
@@ -103,12 +127,12 @@ mysqli_close($db);
 
 
 //Redirect to login page to limit attempts
-if(! empty($user_name)){
+//if(! empty($user_name)){
 	//For new user guidance
-	$_SESSION['first_time']=1;
-	header("Location: /index.php");
-	exit();
-}
+//	$_SESSION['first_time']=1;
+//	header("Location: /index.php");
+//	exit();
+//}
 
 
 
