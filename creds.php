@@ -12,6 +12,11 @@
   
   $database2 = '';
   $table2 = '';
+  //Configure the below to satisfy the PHP mail function
+  $from = 'no-reply@nerdofcode.com';
+  $reply = 'admin@nerdofcode.com';
+  //Allowed amount of accounts from one IP
+  $allowed = '2';
   
   
 
