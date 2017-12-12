@@ -12,6 +12,11 @@
   
   $database2 = '';
   $table2 = '';
+  //Configure the below to satisfy the PHP mail function
+  $from = '';
+  $reply = '';
+  //Allowed amount of accounts from one IP
+  $allowed = '2';
   
   
 
