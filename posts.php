@@ -51,12 +51,13 @@ while($row = mysqli_fetch_array($result)){
         $head = $row['header'];
 	$id =   $row['id'];
 	$name = $row['name'];	
-
+	$date = $row['date'];
 
         //Send the stored text through parsedown for markdown support
         echo $Parsedown->text("$head");
         echo "<hr id=\"hr\">";
-	echo "$info";      
+	echo "$info";     
+	echo "Posted on: $date"; 
         echo "<br>";
 }
 ?>
