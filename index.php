@@ -1,4 +1,3 @@
-<?xml version="1.0" enoding="utf-8"?>
 <!DOCTYPE html>
 
 <?php
@@ -9,8 +8,7 @@ if($_SESSION['status']=="1"){
 	exit();
 }
 ?>
-<html lang="en">
-	
+<html>
 	<head>
 		<link rel="stylesheet" href="style.css" type="text/css">
 	</head>
@@ -39,7 +37,7 @@ include 'creds.php';
 $user_name = $_POST['username'];
 $_SESSION['user']="$user_name";
 $user_password = $_POST['password'];
-$db = mysqli_connect('localhost',$username,$password,$database) or die("Error connecting to MYSQL");
+$db = mysqli_connect('localhost',$username,$password,$database) or die("<p style='color:red;'>Error connecting to MYSQL</p>");
 $query = "SELECT password FROM $table WHERE name = \"$user_name\"";
 //mysqli_query($db, $query) or die("<p class=\"text-align:center;\">Unable to access MYSQL</p>");
 $result = mysqli_query($db, $query);
