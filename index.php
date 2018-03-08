@@ -1,3 +1,4 @@
+<?xml version="1.0" enoding="utf-8"?>
 <!DOCTYPE html>
 
 <?php
@@ -8,7 +9,8 @@ if($_SESSION['status']=="1"){
 	exit();
 }
 ?>
-<html>
+<html lang="en">
+	
 	<head>
 		<link rel="stylesheet" href="style.css" type="text/css">
 	</head>
